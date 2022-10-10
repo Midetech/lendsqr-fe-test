@@ -10,6 +10,7 @@ import { FormRowGroup } from "../../../components/Form-row";
 import Button from "../../../components/Button";
 import Validators from "../../../utils/validators";
 import { BeatLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const initialValues: LoginType = {
@@ -22,6 +23,9 @@ const Login = () => {
   const handleToggle = () => {
     setShowPassword(!showPassword);
   };
+
+  const navigate = useNavigate();
+
   const validationScheme = Yup.object({
     email: Validators.validateEmail(true),
     password: Validators.validatePassword(false, true),
@@ -50,38 +54,42 @@ const Login = () => {
               onSubmit={(values, actions) => {
                 actions.setSubmitting(true);
 
-                console.log(values);
+                setTimeout(() => {
+                  navigate("/dashboard/users");
+                }, 3000);
               }}
             >
               {({ errors, isSubmitting }) => (
                 <Form>
-                  <FormRowGroup>
-                    <Field name="email" placeholder="Email" type="text" />
-                    <ErrorMessage
-                      name="email"
-                      component="span"
-                      className="error"
-                    />
-                  </FormRowGroup>
-                  <FormRowGroup>
-                    <Field
-                      name="password"
-                      placeholder="Password"
-                      type={showPassword ? "text" : "password"}
-                    />{" "}
-                    <span
-                      onClick={handleToggle}
-                      className={style["toggle--password"]}
-                    >
-                      {showPassword ? "Hide" : "Show"}
-                    </span>
-                    <ErrorMessage
-                      name="password"
-                      component="span"
-                      className="error"
-                    />
-                  </FormRowGroup>
-
+                  <div className={style["form--fields"]}>
+                    <FormRowGroup>
+                      <Field name="email" placeholder="Email" type="text" />
+                      <ErrorMessage
+                        name="email"
+                        component="span"
+                        className="error"
+                      />
+                    </FormRowGroup>
+                    <FormRowGroup>
+                      <Field
+                        name="password"
+                        placeholder="Password"
+                        type={showPassword ? "text" : "password"}
+                      />{" "}
+                      <span
+                        onClick={handleToggle}
+                        className={style["toggle--password"]}
+                      >
+                        {showPassword ? "Hide" : "Show"}
+                      </span>
+                      <ErrorMessage
+                        name="password"
+                        component="span"
+                        className="error"
+                      />
+                    </FormRowGroup>
+                  </div>
+                  <p className={style["forgot--password"]}>Forgot Password?</p>
                   <Button type="submit" className="large--filled">
                     {isSubmitting ? <BeatLoader color="#fff" /> : "LOG IN"}
                   </Button>
