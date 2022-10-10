@@ -1,0 +1,36 @@
+$primary-color: #213f7d;
+$secondary-color: #39cdcc;
+$pending-color: #e9b200;
+$inactive-color: #545f7d;
+$blacklist-color: #e4033b;
+$active-color: #39cd62;
+
+$break-point-s: 576px;
+$break-point-md: 782px;
+$break-point-l: 992px;
+$break-point-xl: 1024px;
+$break-point-xxl: 1200px;
+
+@font-face {
+    font-family: "Avenir_next_Bold";
+    src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Avenir_next";
+    src: url("../assets/fonts/AvenirNextLTPro-Regular.otf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/AvenirNextLTPro-It.otf") format("truetype");
+    font-display: swap;
+}
+
+.error {
+    color: $blacklist-color;
+    font-size: 14px;
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
