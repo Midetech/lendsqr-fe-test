@@ -13,7 +13,8 @@ const Layout = ({ children }: Props) => {
       <Sidebar />
       <main>
         <Header />
-        <div className={style["content"]}>{children}</div>
+
+        {children}
       </main>
     </div>
   );

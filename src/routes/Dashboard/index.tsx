@@ -95,7 +95,7 @@ const Dashboard = () => {
                   <th key={index}>
                     <span>{item}</span>
                     {item === "" ? (
-                      ""
+                      <span></span>
                     ) : (
                       <span>
                         <img src={filter} alt="filter" />

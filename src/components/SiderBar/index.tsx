@@ -3,6 +3,7 @@ import style from "./index.module.scss";
 import { navLinks } from "./nav";
 import briefcase from "../../assets/siderbar-icons/briefcase.svg";
 import home from "../../assets/siderbar-icons/home.svg";
+import next from "../../assets/siderbar-icons/next.svg";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
@@ -14,6 +15,7 @@ const Sidebar = () => {
         <div className={style["switch"]}>
           <img src={briefcase} alt="sss" />
           <div className={style["link-title"]}>Switch Organization</div>
+          <img src={next} alt="sss" />
         </div>
         <div className={style["dashboard"]}>
           <img src={home} alt="sss" />
