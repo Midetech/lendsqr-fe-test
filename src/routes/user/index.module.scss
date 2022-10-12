@@ -1,0 +1,254 @@
+@import "../../styles/base.scss";
+
+.details--container {
+    margin-top: 35px;
+    .go--back {
+        width: 160px;
+        cursor: pointer;
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: $text-color;
+
+        span {
+            margin-right: 4px;
+        }
+    }
+    &__header {
+        margin-top: 32px;
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+            font-family: "Work Sans";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+
+            color: $text-color;
+        }
+
+        .action--buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            button {
+                width: 170px;
+                height: 40px;
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 16px;
+                /* identical to box height */
+
+                text-align: center;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            button:first-child {
+                border: 1px solid #e4033b;
+                color: #e4033b;
+            }
+        }
+    }
+
+    &__info {
+        margin-top: 40px;
+        height: 210px;
+        background: #ffffff;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .user--details {
+            padding: 30px 20px;
+            display: flex;
+            gap: 30px;
+            .profile {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                .picture {
+                    width: 100px;
+                    height: 100px;
+                    background: rgba($color: #213f7d, $alpha: 0.16);
+
+                    border-radius: 50%;
+
+                    display: grid;
+                    place-items: center;
+
+                    img {
+                        width: 90%;
+                        height: 90%;
+                        border-radius: 50%;
+                    }
+                }
+
+                .username {
+                    padding-right: 30px;
+                    border-right: 1px solid rgba($color: #545f7d, $alpha: 0.2);
+
+                    .name {
+                        font-family: "Work Sans";
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 22px;
+                        line-height: 26px;
+                        color: $text-color;
+                    }
+
+                    .account-number {
+                        font-family: "Work Sans";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        margin-top: -20px;
+                        color: #545f7d;
+                    }
+                }
+            }
+        }
+
+        .user--rate {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-right: 30px;
+            border-right: 1px solid rgba($color: #545f7d, $alpha: 0.2);
+
+            p {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                color: $text-color;
+            }
+        }
+
+        .user--amount {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            .balance {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 22px;
+                line-height: 26px;
+                color: $primary-color;
+            }
+            .account-number {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                color: $primary-color;
+                margin-top: -20px;
+            }
+        }
+
+        .tabs {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+
+            .tab {
+                flex-basis: 120px;
+                cursor: pointer;
+                font-family: "SF Compact Text";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                /* identical to box height */
+
+                text-align: center;
+
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            .active--tab {
+                cursor: pointer;
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                padding-bottom: 10px;
+                color: $secondary-color;
+                width: 170px;
+                text-align: center;
+                border-bottom: 2px solid $secondary-color;
+            }
+        }
+    }
+
+    &__data {
+        padding: 10px 30px;
+        margin-top: 30px;
+        background: #ffffff;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        height: 940px;
+        .personal--info {
+            border-bottom: 1px solid rgba($color: #213f7d, $alpha: 0.1);
+            padding-bottom: 28px;
+
+            .title {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 19px;
+                color: $primary-color;
+            }
+
+            .details {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 84px;
+                .title {
+                    font-family: "Work Sans";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 14px;
+                    color: $text-color;
+
+                    text-transform: uppercase;
+                }
+
+                .value {
+                    font-family: "Work Sans";
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: $text-color;
+                    margin-top: -8px;
+                }
+            }
+        }
+    }
+}

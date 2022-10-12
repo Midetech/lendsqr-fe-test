@@ -10,7 +10,8 @@ import more from "../../assets/icons/more-vert.svg";
 import axios from "axios";
 import { Users } from "./types/Users";
 import Pagination from "../../components/Pagination";
-import { FadeLoader } from "react-spinners";
+import { BounceLoader, FadeLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [users, setUsers] = React.useState<Users[]>([]);
@@ -22,8 +23,6 @@ const Dashboard = () => {
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-
-  console.log(currentPage);
 
   // const [showFilter, setShowFilter] = React.useState<boolean>(false);
 
@@ -50,6 +49,8 @@ const Dashboard = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
   React.useEffect(() => {
     const fetchUsers = async () => {
       setLoading(true);
@@ -58,7 +59,6 @@ const Dashboard = () => {
         .then((res) => {
           if (res.status === 200) {
             setUsers(res.data);
-            console.log(res);
             setLoading(false);
           }
         });
@@ -80,7 +80,7 @@ const Dashboard = () => {
               </div>
               <p className={style["title"]}>{item.title}</p>
               {loading ? (
-                <FadeLoader color="#39cdcc" />
+                <BounceLoader color="#39cdcc" />
               ) : (
                 <p className={style["number"]}>{item.number}</p>
               )}
@@ -111,11 +111,14 @@ const Dashboard = () => {
                 <FadeLoader color="#39cdcc" />
               ) : (
                 currentUsers.map((user) => (
-                  <tr key={user.id}>
+                  <tr
+                    key={user.id}
+                    onClick={() => navigate(`/dashboard/users/${user.id}`)}
+                  >
                     <td>{user?.orgName}</td>
                     <td>{user?.userName}</td>
                     <td>{user?.email}</td>
-                    <td>{user?.phoneNumber}</td>
+                    <td>{user?.profile?.phoneNumber}</td>
                     <td>
                       {new Date(user.createdAt).toLocaleString("en-US", {
                         year: "numeric",
@@ -137,12 +140,21 @@ const Dashboard = () => {
           </table>
         </div>
 
-        <Pagination
-          usersPerPage={usersPerPage}
-          totalUsers={users.length}
-          paginate={paginate}
-          activePage={currentPage}
-        />
+        <div className={style["dashboard--container__footer"]}>
+          <div className={style["sort"]}>
+            <p>Showing</p>
+            <select>
+              <option>100</option>
+            </select>
+            <p>out of 100</p>
+          </div>
+          <Pagination
+            usersPerPage={usersPerPage}
+            totalUsers={users.length}
+            paginate={paginate}
+            activePage={currentPage}
+          />
+        </div>
       </div>
     </Layout>
   );
