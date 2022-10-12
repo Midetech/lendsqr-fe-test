@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import style from "./index.module.scss";
 import logoIcon from "../../assets/icons/logo.svg";
@@ -21,7 +22,7 @@ const Header = () => {
         </button>
       </div>
       <div className={style["header--container__settings"]}>
-        <a href="http://"> Docs</a>
+        <a href="#"> Docs</a>
         <img
           src={notification}
           alt="notification-icon"

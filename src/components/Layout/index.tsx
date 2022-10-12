@@ -1,10 +1,20 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Header from "../Header";
+import Sidebar from "../SiderBar";
+import style from "./index.module.scss";
 
-const Layout = () => {
+interface Props {
+  children: ReactNode;
+}
+
+const Layout = ({ children }: Props) => {
   return (
-    <div>
-      <Header />
+    <div className={style["layout--container"]}>
+      <Sidebar />
+      <main>
+        <Header />
+        <div className={style["content"]}>{children}</div>
+      </main>
     </div>
   );
 };

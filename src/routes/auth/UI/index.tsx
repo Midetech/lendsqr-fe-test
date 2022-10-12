@@ -18,7 +18,7 @@ const Login = () => {
     password: "",
   };
 
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   const handleToggle = () => {
     setShowPassword(!showPassword);

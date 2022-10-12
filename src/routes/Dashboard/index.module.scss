@@ -1,0 +1,154 @@
+@import "../../styles/base.scss";
+
+.dashboard--container {
+    width: 100%;
+    p {
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: $primary-color;
+    }
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+        gap: 26px;
+        width: 100%;
+        overflow-x: scroll;
+        .card {
+            flex-shrink: 1;
+            width: 240px;
+            height: 160px;
+            background: #ffffff;
+            border: 1px solid rgba(33, 63, 125, 0.06);
+            box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-around;
+            padding: 20px 30px;
+
+            .icon {
+                width: 40px;
+                height: 40px;
+                background: rgba(#df18ff, 0.1);
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+
+                img {
+                    opacity: 1;
+                }
+            }
+
+            .title {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                text-transform: uppercase;
+                padding: 0;
+                margin: 0;
+                color: #545f7d;
+            }
+
+            .number {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 28px;
+                text-transform: uppercase;
+                padding: 0;
+                margin: 0;
+                color: #213f7d;
+            }
+        }
+
+        .card:last-child {
+            .icon {
+                background: rgba(#ff3366, 0.1);
+            }
+        }
+        .card:nth-child(2) {
+            .icon {
+                background: rgba(#5718ff, 0.1);
+            }
+        }
+        .card:nth-child(3) {
+            .icon {
+                background: rgba(#f55f44, 0.1);
+            }
+        }
+    }
+
+    &__table {
+        margin-top: 40px;
+        height: 640px;
+        background: #ffffff;
+        padding: 20px;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+        overflow: scroll;
+        position: relative;
+
+        table {
+            width: 100%;
+            height: 640px;
+        }
+
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+            border-bottom: 1px solid rgba(33, 63, 125, 0.06);
+            thead {
+                th {
+                    height: 50px;
+                    background-color: #ffffff;
+                    position: sticky;
+                    top: -20px;
+                    font-family: "Work Sans";
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 14px;
+                    text-transform: uppercase;
+                    text-align: justify;
+                    color: #545f7d;
+
+                    span:last-child {
+                        position: absolute;
+                        margin-left: 10px;
+                    }
+                }
+            }
+
+            tbody {
+                height: 50px !important;
+                tr,
+                td {
+                    padding: 23px 0px 22px 0px;
+                    font-family: "Work Sans";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 16px;
+                    text-align: left;
+                    cursor: pointer;
+                    color: #545f7d;
+                }
+
+                tr:hover,
+                td:hover {
+                    background-color: #eaeffc;
+                }
+            }
+        }
+    }
+}

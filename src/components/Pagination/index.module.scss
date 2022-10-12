@@ -1,0 +1,31 @@
+div {
+    .pagination {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        float: right;
+
+        .page-item {
+            .page-link {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                opacity: 0.6;
+                text-decoration: none;
+                color: #545f7d;
+            }
+
+            .active-link {
+                font-family: "Work Sans";
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 19px;
+                text-decoration: none;
+                color: #545f7d;
+            }
+        }
+    }
+}

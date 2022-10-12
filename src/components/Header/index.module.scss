@@ -1,5 +1,4 @@
 @import "../../styles/base.scss";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Work+Sans:wght@100;200;300;400;500;600;700&display=swap");
 .header--container {
     height: 100px;
     background: #ffffff;
@@ -10,6 +9,10 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 2;
 
     &__logo {
         flex-basis: 144px;

@@ -10,7 +10,6 @@ interface Props {
 
 function Button({ type, className, children, disabled, ...props }: Props) {
   return (
-    // <div>
     <button
       type={type}
       disabled={disabled}
@@ -19,7 +18,6 @@ function Button({ type, className, children, disabled, ...props }: Props) {
     >
       {children}
     </button>
-    // </div>
   );
 }
 
