@@ -8,7 +8,7 @@ import UserDetails from "./routes/user";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route index element={<Login />} />
       <Route path="/dashboard/users" element={<Dashboard />} />
       <Route path="/dashboard/users/:id" element={<UserDetails />} />
