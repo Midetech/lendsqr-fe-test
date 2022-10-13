@@ -12,8 +12,10 @@ const Header = () => {
   return (
     <div className={style["header--container"]}>
       <div className={style["header--container__logo"]}>
-        <img src={logoIcon} alt="lendsqr-union" />
-        <img src={lendsqr} alt="lendsqr-text" />
+        <div>
+          <img src={logoIcon} alt="lendsqr-union" />
+          <img src={lendsqr} alt="lendsqr-text" />
+        </div>
       </div>
       <div className={style["header--container__search"]}>
         <input type="text" placeholder="Search for anything" />

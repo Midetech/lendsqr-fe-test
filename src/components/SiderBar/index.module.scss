@@ -23,7 +23,7 @@
             width: 283px;
             height: 40px;
             padding-left: 30px;
-            padding-top: 30px;
+            padding-top: 2.5rem;
             .link-title {
                 font-family: "Work Sans";
                 font-style: normal;
@@ -107,6 +107,8 @@
 }
 @media screen and (max-width: 900px) {
     .sidebar--container {
-        width: 80px;
+        // width: 40px;
+        top: 60px;
+        display: none;
     }
 }
