@@ -1,56 +1,48 @@
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-// import mockFetch from "./mock/mockFetch";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
+import Login from "./routes/auth/UI";
+import Dashboard from "./routes/Dashboard";
+import { act } from "react-dom/test-utils";
+import { BrowserRouter as Router } from "react-router-dom";
+import UserDetails from "./routes/user";
 
-// beforeEach(() => {
-//   jest.spyOn(window, "fetch").mockImplementation(mockFetch);
-// });
-
-// afterEach(() => {
-//   ("");
-//   jest.restoreAllMocks();
-// });
-
-test("renders the landing page", async () => {
-  render(<App />);
-
-  expect(screen.getByRole("heading")).toHaveTextContent(/Doggy Directory/);
-  expect(screen.getByRole("combobox")).toHaveDisplayValue("Select a breed");
-  expect(
-    await screen.findByRole("option", { name: "husky" })
-  ).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: "Search" })).toBeDisabled();
-  expect(screen.getByRole("img")).toBeInTheDocument();
+test("renders app component", async () => {
+  render(
+    <Router>
+      <App />
+    </Router>
+  );
 });
 
-test("should be able to search and display dog image results", async () => {
-  render(<App />);
+test("renders the login page", async () => {
+  render(
+    <Router>
+      <Login />
+    </Router>
+  );
+  const images = screen.getAllByRole("img");
 
-  //Simulate selecting an option and verifying its value
-  const select = screen.getByRole("combobox");
-  expect(
-    await screen.findByRole("option", { name: "cattledog" })
-  ).toBeInTheDocument();
-  userEvent.selectOptions(select, "cattledog");
-  expect(select).toHaveValue("cattledog");
+  expect(screen.getByRole("heading")).toHaveTextContent(/Welcome!/);
+  expect(images).toHaveLength(3);
+  const button = screen.getByRole("button", { name: "LOG IN" });
 
-  //Initiate the search request
-  const searchBtn = screen.getByRole("button", { name: "Search" });
-  expect(searchBtn).not.toBeDisabled();
-  userEvent.click(searchBtn);
+  act(() => {
+    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
+});
 
-  //Loading state displays and gets removed once results are displayed
-  await waitForElementToBeRemoved(() => screen.queryByText(/Loading/i));
+test("renders the dashboard", async () => {
+  render(
+    <Router>
+      <Dashboard />
+    </Router>
+  );
+});
 
-  //Verify image display and results count
-  const dogImages = screen.getAllByRole("img");
-  expect(dogImages).toHaveLength(2);
-  expect(screen.getByText(/2 Results/i)).toBeInTheDocument();
-  expect(dogImages[0]).toHaveAccessibleName("cattledog 1 of 2");
-  expect(dogImages[1]).toHaveAccessibleName("cattledog 2 of 2");
+test("renders the single user page", async () => {
+  render(
+    <Router>
+      <UserDetails />
+    </Router>
+  );
 });

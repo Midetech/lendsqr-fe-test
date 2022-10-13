@@ -8,7 +8,6 @@ import star from "../../assets/icons/star.svg";
 import filled_star from "../../assets/icons/filled-star.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { Users } from "../../types/Users";
-import axios from "axios";
 
 const UserDetails = () => {
   const navigate = useNavigate();
@@ -19,24 +18,26 @@ const UserDetails = () => {
   const [currentTab, setCurretTab] = React.useState<string>("General Details");
   const [loading, setLoading] = React.useState<boolean>(false);
   React.useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchUser = async () => {
       setLoading(true);
-      await axios
-        .get(
-          `https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`
-        )
-        .then((res) => {
-          if (res.status === 200) {
-            console.log(res.data);
+      try {
+        const response = await fetch(
+          `https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`,
+          { method: "GET" }
+        );
+        setLoading(false);
+        const data = await response.json();
+        setUserData(data);
 
-            setUserData(res.data);
-            setLoading(false);
-          }
-        });
+        return data;
+      } catch (error) {
+        return error;
+      }
     };
 
-    fetchUsers();
+    fetchUser();
   }, [id]);
+
   const handleTabChange = (tab: string) => {
     setCurretTab(tab);
   };

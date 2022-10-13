@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import Layout from "../../components/Layout";
 import style from "./index.module.scss";
@@ -81,16 +80,20 @@ const Dashboard = () => {
   React.useEffect(() => {
     const fetchUsers = async () => {
       setLoading(true);
-      await axios
-        .get("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
-        .then((res) => {
-          if (res.status === 200) {
-            setUsers(res.data);
-            setLoading(false);
-          }
-        });
-    };
+      try {
+        const response = await fetch(
+          "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users",
+          { method: "GET" }
+        );
+        setLoading(false);
+        const data = await response.json();
+        setUsers(data);
 
+        return data;
+      } catch (error) {
+        return error;
+      }
+    };
     fetchUsers();
   }, []);
 

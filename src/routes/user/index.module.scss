@@ -254,10 +254,10 @@
         &__header {
             flex-direction: column;
             row-gap: 20px;
-            width: 343px;
+            width: 353px;
             .action--buttons {
                 button {
-                    width: 45%;
+                    width: 50%;
                 }
             }
         }
@@ -271,10 +271,6 @@
                 gap: 10px;
                 padding-top: 8px;
                 font-size: 14px;
-
-                .active--tab {
-                    // width: 120px;
-                }
             }
         }
 
