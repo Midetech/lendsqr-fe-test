@@ -53,7 +53,14 @@ const Login = () => {
               validationSchema={validationScheme}
               onSubmit={(values, actions) => {
                 actions.setSubmitting(true);
-
+                const userObj = {
+                  email: values.email,
+                  isAuth: true,
+                };
+                window.sessionStorage.setItem(
+                  "lendsqr_user",
+                  JSON.stringify(userObj)
+                );
                 setTimeout(() => {
                   navigate("/dashboard/users");
                 }, 3000);

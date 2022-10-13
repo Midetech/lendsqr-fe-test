@@ -13,7 +13,7 @@
     }
     &__cards {
         display: flex;
-        // justify-content: space-between;
+        justify-content: space-between;
         gap: 26px;
         // width: 100%;
         overflow-x: scroll;
@@ -137,11 +137,71 @@
                     cursor: pointer;
                     color: $text-color;
                     width: 18%;
-                }
 
-                tr:hover,
-                td:hover {
-                    background-color: #eaeffc;
+                    .inactive {
+                        padding: 10px 30px;
+                        background: rgba($text-color, 0.06);
+
+                        border-radius: 100px;
+                        font-family: "Work Sans";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        /* identical to box height */
+
+                        text-align: center;
+
+                        color: $text-color;
+                    }
+                    .active {
+                        padding: 10px 30px;
+                        background: rgba($active-color, 0.06);
+
+                        border-radius: 100px;
+                        font-family: "Work Sans";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        /* identical to box height */
+
+                        text-align: center;
+
+                        color: $active-color;
+                    }
+                    .pending {
+                        padding: 10px 30px;
+                        background: rgba($pending-color, 0.1);
+
+                        border-radius: 100px;
+                        font-family: "Work Sans";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        /* identical to box height */
+
+                        text-align: center;
+
+                        color: $pending-color;
+                    }
+                    .blacklist {
+                        padding: 10px 30px;
+                        background: rgba($blacklist-color, 0.06);
+
+                        border-radius: 100px;
+                        font-family: "Work Sans";
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        /* identical to box height */
+
+                        text-align: center;
+
+                        color: $blacklist-color;
+                    }
                 }
             }
         }
@@ -182,6 +242,7 @@
         }
     }
 }
+
 @media screen and (min-width: 375px) and (max-width: 600px) {
     .dashboard--container {
         width: 1037px;

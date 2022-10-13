@@ -7,7 +7,7 @@ import user from "../../assets/icons/user.svg";
 import star from "../../assets/icons/star.svg";
 import filled_star from "../../assets/icons/filled-star.svg";
 import { useNavigate, useParams } from "react-router-dom";
-import { Users } from "../Dashboard/types/Users";
+import { Users } from "../../types/Users";
 import axios from "axios";
 
 const UserDetails = () => {

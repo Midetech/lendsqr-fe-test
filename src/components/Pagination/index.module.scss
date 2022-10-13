@@ -3,7 +3,17 @@ div {
         display: flex;
         gap: 20px;
         list-style: none;
-
+        .next,
+        .prev {
+            width: 24px;
+            height: 24px;
+            background: rgba(33, 63, 125, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            display: grid;
+            place-items: center;
+        }
         .page-item {
             .page-link {
                 font-family: "Work Sans";

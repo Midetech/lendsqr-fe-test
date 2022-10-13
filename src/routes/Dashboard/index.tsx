@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import Layout from "../../components/Layout";
 import style from "./index.module.scss";
@@ -7,11 +8,13 @@ import loans from "../../assets/icons/loans.svg";
 import savings from "../../assets/icons/savings.svg";
 import filter from "../../assets/icons/filter.svg";
 import more from "../../assets/icons/more-vert.svg";
-import axios from "axios";
-import { Users } from "./types/Users";
+
+import { Users } from "../../types/Users";
 import Pagination from "../../components/Pagination";
 import { BounceLoader, FadeLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
+import { ActionDialog } from "./components/Action-dialog/action-dialog";
+import { Filter } from "./components/Filter/filter";
 
 const Dashboard = () => {
   const [users, setUsers] = React.useState<Users[]>([]);
@@ -24,7 +27,31 @@ const Dashboard = () => {
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
-  // const [showFilter, setShowFilter] = React.useState<boolean>(false);
+  const [showFilter, setShowFilter] = React.useState<boolean>(false);
+
+  const [showDialog, setShowDialog] = React.useState<boolean>(false);
+  const [selectedUser, setSelectedUser] = React.useState<number>();
+  const [selectedTable, setSelectedTable] = React.useState<number>();
+
+  const handleToggle = (index: number) => {
+    setShowFilter(false);
+    setSelectedUser(index);
+    if (index !== selectedUser) {
+      setShowDialog(true);
+      return;
+    }
+    setShowDialog(!showDialog);
+  };
+
+  const openFilter = (index: number) => {
+    setSelectedTable(index);
+    setShowDialog(false);
+    if (index !== selectedTable) {
+      setShowFilter(true);
+      return;
+    }
+    setShowFilter(!showFilter);
+  };
 
   const cards = [
     {
@@ -93,11 +120,12 @@ const Dashboard = () => {
               <tr>
                 {theads.map((item, index) => (
                   <th key={index}>
+                    {showFilter && index === selectedTable && <Filter />}
                     <span>{item}</span>
                     {item === "" ? (
                       <span></span>
                     ) : (
-                      <span>
+                      <span onClick={() => openFilter(index)}>
                         <img src={filter} alt="filter" />
                       </span>
                     )}
@@ -113,7 +141,7 @@ const Dashboard = () => {
                 currentUsers.map((user) => (
                   <tr
                     key={user.id}
-                    onClick={() => navigate(`/dashboard/users/${user.id}`)}
+                    // onClick={() => navigate(`/dashboard/users/${user.id}`)}
                   >
                     <td>{user?.orgName}</td>
                     <td>{user?.userName}</td>
@@ -129,9 +157,27 @@ const Dashboard = () => {
                         hour12: true,
                       })}
                     </td>
-                    <td>{user.id}</td>
                     <td>
-                      <img src={more} alt="more-vert" />
+                      <span
+                        className={style[`${user.status}`] ?? style["inactive"]}
+                      >
+                        {user.status ?? "N/A"}
+                      </span>
+                    </td>
+                    <td>
+                      <div
+                        style={{ cursor: "pointer" }}
+                        onClick={() => handleToggle(user.id)}
+                      >
+                        <img src={more} alt="more-vert" />
+                      </div>
+                      {showDialog && user.id === selectedUser && (
+                        <ActionDialog
+                          handleView={() =>
+                            navigate(`/dashboard/users/${selectedUser}`)
+                          }
+                        />
+                      )}
                     </td>
                   </tr>
                 ))
@@ -169,4 +215,5 @@ const theads = [
   "status",
   "",
 ];
+
 export default Dashboard;
