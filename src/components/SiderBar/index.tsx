@@ -6,40 +6,43 @@ import home from "../../assets/siderbar-icons/home.svg";
 import next from "../../assets/siderbar-icons/next.svg";
 import close from "../../assets/icons/close.svg";
 import open from "../../assets/icons/open.svg";
+import logoIcon from "../../assets/icons/logo.svg";
+import lendsqr from "../../assets/icons/lendsqr.svg";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const location = useLocation();
 
-  const [showSideBar, setShowSideBar] = React.useState<boolean>(true);
+  const [showSideBar, setShowSideBar] = React.useState<boolean>(false);
   return (
     <div
       className={
-        showSideBar
-          ? style["sidebar--container"]
-          : style["sidebar--container-active"]
+        style[showSideBar ? "sidebar--container-hidden" : "sidebar--container"]
       }
     >
       {showSideBar ? (
-        <img
-          src={close}
-          alt="sss"
-          className={style["toggle"]}
-          onClick={() => setShowSideBar(!showSideBar)}
-        />
-      ) : (
         <img
           src={open}
           alt="sss"
           className={style["toggle"]}
           onClick={() => setShowSideBar(!showSideBar)}
         />
+      ) : (
+        <img
+          src={close}
+          alt="sss"
+          className={style["toggle"]}
+          onClick={() => setShowSideBar(!showSideBar)}
+        />
       )}
       <div
-        className={style["sidebar--container__items"]}
-        style={{ display: showSideBar ? "block" : "none" }}
+        className={style[showSideBar ? "items" : "sidebar--container__items"]}
       >
+        <div className={style["logos"]}>
+          <img src={logoIcon} alt="lendsqr-union" />
+          <img src={lendsqr} alt="lendsqr-text" />
+        </div>
         <div className={style["switch"]}>
           <img src={briefcase} alt="sss" />
           <div className={style["link-title"]}>Switch Organization</div>

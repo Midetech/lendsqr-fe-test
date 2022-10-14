@@ -131,9 +131,16 @@
         row-gap: 20px;
         padding: 10px;
 
+        &__logo {
+            div {
+                display: none;
+            }
+        }
+
         &__search {
-            width: 100%;
+            width: 90%;
             // order: 1;
+            margin-left: 50px;
         }
 
         &__settings {
