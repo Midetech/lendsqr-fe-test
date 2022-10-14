@@ -23,7 +23,10 @@ Hosted URL [https://sunday-olomitutu-lendsqr-fe-test.vercel.app](https://sunday-
 Lendsqr-fe-test is a coding test for Lendsqr Frontend developer role and it is a 4 page dashboard used for managing users and user's activities, with this dashboard one can get all the users and also manages their savings, loans, and general KYC.
 
 ##Screenshots
+![localhost_3004_login](https://user-images.githubusercontent.com/23562596/195741868-06604451-1d17-4ae1-ae5d-aca92f700b6c.png)
 
+![sunday-olomitutu-lendsqr-fe-test vercel app_dashboard_users_1](https://user-images.githubusercontent.com/23562596/195741160-9fc2f139-c62a-49ba-9dba-a6df6cf9fbb8.png)
+![sunday-olomitutu-lendsqr-fe-test vercel app_dashboard_users_1 (1)](https://user-images.githubusercontent.com/23562596/195741229-8d8921ea-bbe1-4670-a7bf-bb70973f4490.png)
 ## Technologies
 
 - Reactjs with Typscript
@@ -32,7 +35,9 @@ Lendsqr-fe-test is a coding test for Lendsqr Frontend developer role and it is a
 - SCSS for style
 - Formik and yup for form and form validation
 
-## Setup
+## Setup!
+
+
 
 - download or clone the repository
 - run `npm install` or `yarn` to install project dependecies
