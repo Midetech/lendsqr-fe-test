@@ -14,6 +14,9 @@ import { BounceLoader, FadeLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import { ActionDialog } from "./components/Action-dialog/action-dialog";
 import { Filter } from "./components/Filter/filter";
+import Button from "../../components/Button";
+import Modal from "../../components/Modal";
+import { BeatLoader } from "react-spinners";
 
 const Dashboard = () => {
   const [users, setUsers] = React.useState<Users[]>([]);
@@ -31,6 +34,24 @@ const Dashboard = () => {
   const [showDialog, setShowDialog] = React.useState<boolean>(false);
   const [selectedUser, setSelectedUser] = React.useState<number>();
   const [selectedTable, setSelectedTable] = React.useState<number>();
+
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [actionType, setActionType] = React.useState<string>("");
+  const [isProcessing, setIsProcessing] = React.useState<boolean>(false);
+
+  const toggleActionModal = (action: string) => {
+    setActionType(action);
+    setIsOpen(!isOpen);
+    setShowDialog(false);
+  };
+
+  const activateOrBlackList = () => {
+    setIsProcessing(true);
+    setTimeout(() => {
+      setIsProcessing(false);
+      setIsOpen(false);
+    }, 3000);
+  };
 
   const handleToggle = (index: number) => {
     setShowFilter(false);
@@ -176,6 +197,8 @@ const Dashboard = () => {
                       </div>
                       {showDialog && user.id === selectedUser && (
                         <ActionDialog
+                          handleActivate={() => toggleActionModal("Activate")}
+                          handleBlacklist={() => toggleActionModal("Blacklist")}
                           handleView={() =>
                             navigate(`/dashboard/users/${selectedUser}`)
                           }
@@ -205,6 +228,31 @@ const Dashboard = () => {
           />
         </div>
       </div>
+
+      <Modal isOpen={isOpen} toggleModal={() => setIsOpen(!isOpen)}>
+        <div className={style["action--modal"]}>
+          <p>Are you sure you want to {actionType}? </p>
+          <div className={style["buttons"]}>
+            <Button
+              className="small--filled"
+              type="submit"
+              onClick={activateOrBlackList}
+            >
+              {" "}
+              {isProcessing ? <BeatLoader color="#fff" /> : actionType}
+            </Button>
+
+            <Button
+              className="small--ghost"
+              type="reset"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {" "}
+              Cancel
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </Layout>
   );
 };

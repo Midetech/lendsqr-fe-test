@@ -17,6 +17,7 @@
             margin-right: 4px;
         }
     }
+
     &__header {
         margin-top: 32px;
         display: flex;
@@ -245,6 +246,31 @@
                     margin-top: -8px;
                 }
             }
+        }
+    }
+}
+
+.action--modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 26px;
+        color: $text-color;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 14px;
+
+        button {
+            width: 120px;
+            height: 50px;
         }
     }
 }

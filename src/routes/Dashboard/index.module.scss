@@ -243,6 +243,31 @@
     }
 }
 
+.action--modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 26px;
+        color: $text-color;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 14px;
+
+        button {
+            width: 120px;
+            height: 50px;
+        }
+    }
+}
+
 @media screen and (min-width: 375px) and (max-width: 600px) {
     .dashboard--container {
         width: 1037px;

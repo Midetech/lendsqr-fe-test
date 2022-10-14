@@ -8,6 +8,8 @@ import star from "../../assets/icons/star.svg";
 import filled_star from "../../assets/icons/filled-star.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { Users } from "../../types/Users";
+import Modal from "../../components/Modal";
+import { BeatLoader } from "react-spinners";
 
 const UserDetails = () => {
   const navigate = useNavigate();
@@ -17,6 +19,22 @@ const UserDetails = () => {
   const [userData, setUserData] = React.useState<Users>();
   const [currentTab, setCurretTab] = React.useState<string>("General Details");
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [actionType, setActionType] = React.useState<string>("");
+  const [isProcessing, setIsProcessing] = React.useState<boolean>(false);
+  const toggleActionModal = (action: string) => {
+    setActionType(action);
+    setIsOpen(!isOpen);
+  };
+
+  const activateOrBlackList = () => {
+    setIsProcessing(true);
+    setTimeout(() => {
+      setIsProcessing(false);
+      setIsOpen(false);
+    }, 3000);
+  };
+
   React.useEffect(() => {
     const fetchUser = async () => {
       setLoading(true);
@@ -169,10 +187,18 @@ const UserDetails = () => {
           <div className={style["title"]}>User Details</div>
           <div className={style["action--buttons"]}>
             {" "}
-            <Button className="small--ghost" type="button">
+            <Button
+              className="small--ghost"
+              type="button"
+              onClick={() => toggleActionModal("Blacklist")}
+            >
               BLACKLIST USER
             </Button>
-            <Button className="small--ghost" type="button">
+            <Button
+              className="small--ghost"
+              type="button"
+              onClick={() => toggleActionModal("Activate")}
+            >
               ACTIVATE USER
             </Button>
           </div>
@@ -185,7 +211,7 @@ const UserDetails = () => {
                   src={
                     userData?.profile?.avatar ? userData?.profile?.avatar : user
                   }
-                  alt="ame"
+                  alt="user"
                 />
               </div>
               <div className={style["username"]}>
@@ -244,6 +270,30 @@ const UserDetails = () => {
               ))}
         </div>
       </div>
+
+      <Modal isOpen={isOpen} toggleModal={() => setIsOpen(!isOpen)}>
+        <div className={style["action--modal"]}>
+          <p>Are you sure you want to {actionType}? </p>
+          <div className={style["buttons"]}>
+            <Button
+              className="small--filled"
+              type="submit"
+              onClick={activateOrBlackList}
+            >
+              {" "}
+              {isProcessing ? <BeatLoader color="#fff" /> : actionType}
+            </Button>
+            <Button
+              className="small--ghost"
+              type="reset"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {" "}
+              Cancel
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </Layout>
   );
 };

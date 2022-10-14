@@ -1,6 +1,7 @@
 # Project Title
 
-The name of the Project
+Lendsqr-fe-test
+Sunday Olomitutu
 
 ## Demo link:
 
@@ -23,11 +24,11 @@ Lendsqr-fe-test is a coding test for Lendsqr Frontend developer role and it is a
 
 ## Technologies
 
-Reactjs with Typscript
-Axios for HTTPs requests
-React-router
-SCSS for style
-Formik and yup for form and form validation
+- Reactjs with Typscript
+- Fetch for HTTPs requests
+- React-router
+- SCSS for style
+- Formik and yup for form and form validation
 
 ## Setup
 
