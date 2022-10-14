@@ -94,8 +94,11 @@ const UserDetails = () => {
         },
         {
           heading: "type of  residence",
-          value:
-            userData?.profile?.typeOfResidence ?? userData?.profile.address,
+          value: userData?.profile?.typeOfResidence ?? "N/A",
+        },
+        {
+          heading: "Resident Address",
+          value: userData?.profile.address,
         },
       ],
     },
