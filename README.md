@@ -1,4 +1,4 @@
-# Project Title
+# Lendsqr-fe-test
 
 Lendsqr-fe-test
 by Sunday Olomitutu
@@ -41,8 +41,6 @@ Lendsqr-fe-test is a coding test for Lendsqr Frontend developer role and it is a
 - Formik and yup for form and form validation
 
 ## Setup!
-
-
 
 - download or clone the repository
 - run `npm install` or `yarn` to install project dependecies
