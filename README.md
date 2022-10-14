@@ -1,11 +1,11 @@
 # Project Title
 
 Lendsqr-fe-test
-Sunday Olomitutu
+by Sunday Olomitutu
 
 ## Demo link:
 
-Access the app [https://sunday-olomitutu-lendsqr-fe-test.vercel.app](https://sunday-olomitutu-lendsqr-fe-test.vercel.app/)
+Hosted URL [https://sunday-olomitutu-lendsqr-fe-test.vercel.app](https://sunday-olomitutu-lendsqr-fe-test.vercel.app/)
 
 ## Table of Content:
 
@@ -22,6 +22,8 @@ Access the app [https://sunday-olomitutu-lendsqr-fe-test.vercel.app](https://sun
 
 Lendsqr-fe-test is a coding test for Lendsqr Frontend developer role and it is a 4 page dashboard used for managing users and user's activities, with this dashboard one can get all the users and also manages their savings, loans, and general KYC.
 
+##Screenshots
+
 ## Technologies
 
 - Reactjs with Typscript
@@ -37,6 +39,7 @@ Lendsqr-fe-test is a coding test for Lendsqr Frontend developer role and it is a
 - run `npm test` for test suite
 
 To visit the app
+
 localhost:3004/login
 
 To login
