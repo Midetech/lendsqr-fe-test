@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import "./App.css";
+import "./App.scss";
 import Login from "./routes/auth/UI";
 import Dashboard from "./routes/Dashboard";
 import UserDetails from "./routes/user";
