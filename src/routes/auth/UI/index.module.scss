@@ -50,6 +50,23 @@
 
         .form--container {
             width: 447px;
+
+            button {
+                font-family: "Avenir_next_Bold";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 19px;
+                /* identical to box height */
+
+                text-align: center;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+
+                /* 6 */
+
+                color: #ffffff;
+            }
             h1 {
                 font-family: "Avenir_next_Bold";
                 font-style: normal;
