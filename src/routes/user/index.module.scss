@@ -276,11 +276,10 @@
 }
 @media screen and (min-width: 375px) and (max-width: 600px) {
     .details--container {
-        width: 825px;
         &__header {
             flex-direction: column;
             row-gap: 20px;
-            width: 353px;
+            width: 90%;
             .action--buttons {
                 button {
                     font-size: 12px;
@@ -291,20 +290,29 @@
         }
 
         &__info {
-            width: 775px;
+            width: 100%;
+            overflow: scroll;
             padding-bottom: 0px;
 
+            .user--details{
+                width: 560px;
+            }
+
             .tabs {
+                width: 760px;
                 gap: 10px;
                 padding-top: 8px;
+                padding-right: 30px;
                 font-size: 14px;
             }
         }
 
         &__data {
-            width: 720px;
+            width: 90%;
+            overflow: scroll;
             gap: 20px;
             .personal--info {
+                width: 760px;
                 .details {
                     gap: 25px;
 

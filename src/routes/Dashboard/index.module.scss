@@ -15,10 +15,9 @@
         display: flex;
         justify-content: space-between;
         gap: 26px;
-        // width: 100%;
-        overflow-x: scroll;
+        width: 100%;
         .card {
-            width: 240px;
+            width: 25%;
             height: 160px;
             background: #ffffff;
             border: 1px solid rgba(33, 63, 125, 0.06);
@@ -94,7 +93,6 @@
         box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
         border-radius: 4px;
         position: relative;
-
         table,
         th,
         td {
@@ -270,23 +268,56 @@
 
 @media screen and (min-width: 375px) and (max-width: 600px) {
     .dashboard--container {
-        width: 1037px;
-        margin-right: 30px;
+        width: 100%;
+        margin-right: 10px;
         &__cards {
-            width: 980px;
-            gap: 25px;
+            width: 100%;
+            gap: 10px;
             justify-content: flex-start;
-
+            flex-wrap: wrap;
             .card {
-                padding: 14px;
+                width: 40%;
+                height: 110px;
+                padding: 8px;
+
+                .icon {
+                    width: 30px;
+                    height: 30px;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
             }
         }
         &__footer {
             width: 980px;
         }
         &__table {
-            padding: 45px;
-            width: 890px;
+            background: none;
+            padding: 0px;
+            width: 90%;
+            overflow-y: scroll;
+            border: none;
+            table {
+                width: 1024px;
+                background: #fff;
+                tbody,
+                thead {
+                    td:first-child {
+                        padding: 20px;
+                    }
+
+                    th:first-child {
+                        padding: 20px;
+                    }
+
+                    td:last-child {
+                        padding-right: 2rem;
+                    }
+                }
+            }
         }
     }
 }

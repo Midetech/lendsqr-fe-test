@@ -14,7 +14,22 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   const location = useLocation();
 
-  const [showSideBar, setShowSideBar] = React.useState<boolean>(false);
+  const [showSideBar, setShowSideBar] = React.useState<boolean>(true);
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const breakpoint = 620;
+
+  React.useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+    if (width < breakpoint) {
+      setShowSideBar(true);
+      return;
+    }
+    setShowSideBar(false);
+    // Return a function from the effect that removes the event listener
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, [width]);
+
   return (
     <div
       className={

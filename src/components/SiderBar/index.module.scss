@@ -130,8 +130,9 @@
 }
 @media screen and (max-width: 600px) {
     .sidebar--container {
+        position: fixed;
         top: 60px;
-
+        z-index: 3;
         .toggle {
             display: block;
             position: absolute;

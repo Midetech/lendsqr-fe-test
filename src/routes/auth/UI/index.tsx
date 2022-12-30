@@ -111,3 +111,93 @@ const Login = () => {
 };
 
 export default Login;
+// import cx from "classnames";
+// import { Component } from "react";
+
+// export default class LikeDislike extends Component {
+//   state = {
+//     like: 100,
+//     dislike: 25,
+//     liked: false,
+//     disliked: false,
+//   };
+//   setDislike() {
+//     this.setState({
+//       disliked: !this.state.disliked,
+//       dislike: this.state.disliked
+//         ? this.state.dislike - 1
+//         : this.state.dislike + 1,
+//     });
+//   }
+//   setLike() {
+//     this.setState({
+//       liked: !this.state.liked,
+//       like: this.state.liked ? this.state.like - 1 : this.state.like + 1,
+//     });
+//   }
+//   handleLike() {
+//     if (this.state.disliked) {
+//       this.setLike();
+//       this.setDislike();
+//     }
+//     this.setLike();
+//   }
+
+//   handleDislike() {
+//     if (this.state.liked) {
+//       this.setDislike();
+//       this.setLike();
+//     }
+//     this.setDislike();
+//   }
+//   render() {
+//     return (
+//       <>
+//         <div>
+//           <h2>Like/Dislike</h2>
+
+//           <button
+//             onClick={() => this.handleLike()}
+//             className={cx("like-button", { ["liked"]: this.state.liked })}
+//           >
+//             Like |{" "}
+//             <span
+//               className={cx({ ["liked"]: this.state.liked }, "likes-counter")}
+//             >
+//               {this.state.like}
+//             </span>
+//           </button>
+//           <button
+//             onClick={() => this.handleDislike()}
+//             className={cx(
+//               { ["disliked"]: this.state.disliked },
+//               "dislike-button "
+//             )}
+//           >
+//             Dislike |{" "}
+//             <span
+//               className={cx(
+//                 { ["disliked"]: this.state.disliked },
+//                 "dislikes-counter"
+//               )}
+//             >
+//               {this.state.dislike}
+//             </span>
+//           </button>
+//         </div>
+//         <style>{`
+//                     .like-button, .dislike-button {
+//                         font-size: 1rem;
+//                         padding: 5px 10px;
+//                         color:   #585858;
+//                     }
+
+//                     .liked, .disliked {
+//                         font-weight: bold;
+//                         color: #1565c0;
+//                     }
+//                 `}</style>
+//       </>
+//     );
+//   }
+// }
